@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, MapPin, Phone, Mail, Clock, MessageCircle, ExternalLink } from 'lucide-react';
+import { X, MapPin, Phone, Mail, Clock, MessageCircle, ExternalLink, Instagram } from 'lucide-react';
 
 interface ContactModalProps {
   onClose: () => void;
@@ -76,17 +76,31 @@ export const ContactModal: React.FC<ContactModalProps> = ({ onClose, onOpenConsu
             </div>
           </div>
 
-          {/* WhatsApp Direct Connect Button */}
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="w-full py-3.5 bg-[#083338] hover:bg-[#0c444a] text-white border border-[#d4af37]/40 font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-md"
-          >
-            <MessageCircle className="w-4 h-4 text-[#d4af37]" />
-            <span>Contact on Official WhatsApp (+91 9821156861)</span>
-            <ExternalLink className="w-3.5 h-3.5 text-teal-200" />
-          </a>
+          {/* Social & Messaging Direct Connect */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="py-3 px-4 bg-[#083338] hover:bg-[#0c444a] text-white border border-[#d4af37]/40 font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-xs"
+            >
+              <MessageCircle className="w-4 h-4 text-[#d4af37]" />
+              <span>WhatsApp Direct</span>
+              <ExternalLink className="w-3.5 h-3.5 text-teal-200" />
+            </a>
+
+            <a
+              href="https://www.instagram.com/elitedesigner_jewelry/"
+              target="_blank"
+              rel="noreferrer"
+              className="py-3 px-4 bg-gradient-to-r from-[#833ab4]/15 via-[#fd1d1d]/15 to-[#fcb045]/15 hover:from-[#833ab4]/25 hover:via-[#fd1d1d]/25 hover:to-[#fcb045]/25 text-[#083338] border border-[#d4af37]/40 font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-xs"
+              title="Official Instagram: @elitedesigner_jewelry"
+            >
+              <Instagram className="w-4 h-4 text-[#d4af37]" />
+              <span>Instagram @elitedesigner_jewelry</span>
+              <ExternalLink className="w-3.5 h-3.5 text-[#083338]" />
+            </a>
+          </div>
 
           <div className="pt-2 border-t border-teal-100 flex justify-between items-center">
             <span className="text-stone-600">Looking for custom engagement or bridal sets?</span>

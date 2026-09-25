@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ShieldCheck, Lock, Mail, Eye, EyeOff, X, Sparkles, AlertCircle, KeyRound, CheckCircle2 } from 'lucide-react';
 import { authenticateStaff, StaffSession } from '../services/staffAuth';
+import { EliteLogo } from './EliteLogo';
 
 interface StaffLoginModalProps {
   isOpen: boolean;
@@ -57,17 +58,20 @@ export const StaffLoginModal: React.FC<StaffLoginModalProps> = ({
           
           {/* Header */}
           <div className="flex items-start justify-between">
-            <div className="space-y-1">
-              <div className="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-widest text-[#0d7480] font-semibold">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#0d7480]" />
-                <span>Atelier Staff Authentication</span>
+            <div className="flex items-start gap-3.5">
+              <EliteLogo size="md" variant="dark" className="shrink-0 mt-1" />
+              <div className="space-y-1">
+                <div className="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-widest text-[#0d7480] font-semibold">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#0d7480]" />
+                  <span>Atelier Staff Authentication</span>
+                </div>
+                <h2 className="font-serif text-2xl text-[#083338] font-normal">
+                  Staff Workspace Access
+                </h2>
+                <p className="text-xs text-stone-500">
+                  Sign in with authorized atelier credentials to manage jewelry collections, consultations, quotations, and QC tracking.
+                </p>
               </div>
-              <h2 className="font-serif text-2xl text-[#083338] font-normal">
-                Staff Workspace Access
-              </h2>
-              <p className="text-xs text-stone-500">
-                Sign in with authorized atelier credentials to manage jewelry collections, consultations, quotations, and QC tracking.
-              </p>
             </div>
             <button
               onClick={onClose}

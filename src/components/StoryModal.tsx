@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, Award, ShieldCheck, HeartHandshake, Sparkles } from 'lucide-react';
+import { EliteLogo } from './EliteLogo';
 
 interface StoryModalProps {
   onClose: () => void;
@@ -14,13 +15,16 @@ export const StoryModal: React.FC<StoryModalProps> = ({ onClose, onOpenConsultat
         role="dialog"
       >
         <div className="px-6 py-4 border-b border-teal-100 flex items-center justify-between bg-[#042326] text-white">
-          <div>
-            <span className="text-[10px] uppercase tracking-widest text-[#d4af37] font-semibold">
-              The Atelier Narrative
-            </span>
-            <h3 className="font-serif text-xl sm:text-2xl text-white">
-              Elite Designer Jewelry by Jigna Khakhar
-            </h3>
+          <div className="flex items-center gap-3">
+            <EliteLogo size="sm" variant="light" className="shrink-0" />
+            <div>
+              <span className="text-[10px] uppercase tracking-widest text-[#d4af37] font-semibold">
+                The Atelier Narrative
+              </span>
+              <h3 className="font-serif text-xl sm:text-2xl text-white">
+                Elite Designer Jewelry by Jigna Khakhar
+              </h3>
+            </div>
           </div>
           <button onClick={onClose} className="p-1.5 text-teal-200 hover:text-white cursor-pointer">
             <X className="w-5 h-5" />

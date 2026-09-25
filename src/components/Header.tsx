@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Search, Heart, ShoppingBag, Calendar, ShieldCheck, Menu, X, Sparkles } from 'lucide-react';
 import { Product, CartItem, ShortlistItem } from '../types';
+import { EliteLogo } from './EliteLogo';
 
 interface HeaderProps {
-  brandLetters?: string;
   onOpenConsultation: () => void;
   onOpenShortlist: () => void;
   onOpenCart: () => void;
@@ -18,7 +18,6 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  brandLetters = 'JK',
   onOpenConsultation,
   onOpenShortlist,
   onOpenCart,
@@ -75,20 +74,23 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           </div>
 
-          {/* Zone 1: Two bold letters brand name wordmark */}
-          <div className="flex flex-col items-center lg:items-start">
+          {/* Zone 1: Company Logo & Brand Identity */}
+          <div className="flex items-center">
             <a 
               href="#" 
               onClick={(e) => { e.preventDefault(); onSelectCategory('all'); }}
-              className="group text-left"
-              title={`${brandLetters} - Fine Diamond Jewelry`}
+              className="group flex items-center gap-2.5 sm:gap-3 text-left"
+              title="Elite Designer Jewelry · Fine Diamond Jewelry"
             >
-              <span className="font-serif text-3xl sm:text-4xl font-black tracking-wider text-[#083338] group-hover:text-[#0d7480] transition-colors leading-none block">
-                {brandLetters}
-              </span>
-              <span className="block text-[10px] tracking-[0.28em] uppercase font-sans text-[#c59b27] font-semibold mt-1">
-                Fine Diamond Jewelry
-              </span>
+              <EliteLogo size="md" variant="dark" className="shrink-0" />
+              <div className="flex flex-col">
+                <span className="font-serif text-xl sm:text-2xl lg:text-3xl font-medium tracking-tight text-[#083338] group-hover:text-[#0d7480] transition-colors leading-tight">
+                  Elite Designer Jewelry
+                </span>
+                <span className="block text-[9px] sm:text-[10px] tracking-[0.25em] uppercase font-sans text-[#b88e36] font-semibold mt-0.5">
+                  Fine Diamond Jewelry
+                </span>
+              </div>
             </a>
           </div>
 

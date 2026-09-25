@@ -11,6 +11,7 @@ import { JEWELRY_CATALOG, CATEGORIES_CONFIG } from '../data/jewelryCatalog';
 import { 
   StaffSession, StaffAccount, getStaffAccounts, updateStaffPassword, createStaffAccount 
 } from '../services/staffAuth';
+import { EliteLogo } from './EliteLogo';
 
 interface AdminPortalProps {
   onClose: () => void;
@@ -859,6 +860,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
         {/* Admin Navigation Top Header */}
         <div className="px-4 sm:px-6 py-3 bg-[#042326] text-white flex items-center justify-between border-b border-[#0d7480]/30 shadow-md">
           <div className="flex items-center gap-3">
+            <EliteLogo size="sm" variant="light" className="shrink-0" />
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-serif text-base sm:text-lg tracking-tight font-medium text-white">Elite Atelier Workspace</span>

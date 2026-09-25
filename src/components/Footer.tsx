@@ -1,6 +1,7 @@
 import React from 'react';
-import { ShieldCheck, MapPin, Phone, Mail, Award, Lock } from 'lucide-react';
+import { ShieldCheck, MapPin, Phone, Mail, Award, Lock, Instagram } from 'lucide-react';
 import { CATEGORIES_CONFIG } from '../data/jewelryCatalog';
+import { EliteLogo } from './EliteLogo';
 
 interface FooterProps {
   onSelectCategory: (category: string) => void;
@@ -30,13 +31,16 @@ export const Footer: React.FC<FooterProps> = ({
           
           {/* Col 1: Brand & Philosophy (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <div>
-              <span className="font-serif text-2xl tracking-tight text-white block">
-                Elite Designer Jewelry
-              </span>
-              <span className="block text-[10px] tracking-[0.25em] uppercase font-sans text-[#d4af37] font-semibold mt-0.5">
-                Fine Diamond Jewelry
-              </span>
+            <div className="flex items-center gap-3.5">
+              <EliteLogo size="lg" variant="light" className="shrink-0" />
+              <div>
+                <span className="font-serif text-2xl tracking-tight text-white block">
+                  Elite Designer Jewelry
+                </span>
+                <span className="block text-[10px] tracking-[0.25em] uppercase font-sans text-[#d4af37] font-semibold mt-0.5">
+                  Fine Diamond Jewelry
+                </span>
+              </div>
             </div>
             <p className="text-teal-100/80 text-xs leading-relaxed max-w-sm">
               Dedicated to authentic craftsmanship, conflict-free certified diamonds, BIS hallmarked gold, and bespoke consultation experiences at our Mumbai flagship atelier.
@@ -60,6 +64,19 @@ export const Footer: React.FC<FooterProps> = ({
                 <Mail className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
                 <a href="mailto:contact.elitedesignerjewelry@gmail.com" className="text-white hover:text-[#d4af37]">
                   contact.elitedesignerjewelry@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center gap-2 pt-1">
+                <Instagram className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
+                <a 
+                  href="https://www.instagram.com/elitedesigner_jewelry/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-white hover:text-[#d4af37] inline-flex items-center gap-1.5 transition-colors font-sans"
+                  title="Official Instagram: @elitedesigner_jewelry"
+                >
+                  <span className="font-mono">@elitedesigner_jewelry</span>
+                  <span className="text-[10px] text-[#d4af37] uppercase tracking-wider font-semibold">· Instagram</span>
                 </a>
               </div>
             </div>
@@ -115,6 +132,18 @@ export const Footer: React.FC<FooterProps> = ({
                   Andheri West Showroom & WhatsApp
                 </button>
               </li>
+              <li>
+                <a 
+                  href="https://www.instagram.com/elitedesigner_jewelry/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-[#d4af37] transition-colors inline-flex items-center gap-1.5 text-teal-100/90"
+                  title="Official Instagram: @elitedesigner_jewelry"
+                >
+                  <Instagram className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
+                  <span>Official Instagram (@elitedesigner_jewelry)</span>
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -153,7 +182,18 @@ export const Footer: React.FC<FooterProps> = ({
               </button>
             )}
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+            <a
+              href="https://www.instagram.com/elitedesigner_jewelry/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-teal-200/80 hover:text-[#d4af37] transition-colors inline-flex items-center gap-1.5 font-medium"
+              title="Official Instagram: @elitedesigner_jewelry"
+            >
+              <Instagram className="w-3.5 h-3.5 text-[#d4af37]" />
+              <span>@elitedesigner_jewelry</span>
+            </a>
+            <span>·</span>
             <span>Insured Transit Across India</span>
             <span>·</span>
             <span>15-Day Inspection Exchange</span>

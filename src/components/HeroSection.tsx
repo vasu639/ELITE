@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, Calendar, ShieldCheck, Sparkles, Award } from 'lucide-react';
 import { Product } from '../types';
 import { JewelryVisual } from './JewelryVisual';
+import { EliteLogo } from './EliteLogo';
 
 interface HeroSectionProps {
   heroProduct?: Product | null;
@@ -27,13 +28,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           
           {/* Left Column: Brand Vision & Direct CTAs (7 cols) */}
           <div className="lg:col-span-7 space-y-6 text-left z-10">
-            {/* Quiet metadata line */}
-            <div className="flex items-center gap-2 text-xs font-sans tracking-[0.2em] uppercase text-[#d4af37] font-medium">
-              <span>Haute Joaillerie Atelier</span>
-              <span aria-hidden="true">·</span>
-              <span>Mumbai Flagship</span>
-              <span aria-hidden="true">·</span>
-              <span>BIS 750 / 916 Assayed</span>
+            {/* Royal Brand Crest Badge & Metadata */}
+            <div className="flex items-center gap-3">
+              <EliteLogo size="sm" variant="light" className="shrink-0 drop-shadow-[0_2px_10px_rgba(212,175,55,0.4)]" />
+              <div className="flex flex-wrap items-center gap-2 text-xs font-sans tracking-[0.2em] uppercase text-[#d4af37] font-medium">
+                <span>Haute Joaillerie Atelier</span>
+                <span aria-hidden="true">·</span>
+                <span>Mumbai Flagship</span>
+                <span aria-hidden="true">·</span>
+                <span>BIS 750 / 916 Assayed</span>
+              </div>
             </div>
 
             {/* Display Headline with balanced wrapping */}
@@ -121,8 +125,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
             ) : (
               <div className="border border-[#d4af37]/30 bg-black/50 p-6 sm:p-8 backdrop-blur-md text-left space-y-5 shadow-2xl">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" />
+                <div className="flex items-center gap-3">
+                  <EliteLogo size="sm" variant="light" />
                   <span className="text-[10px] uppercase tracking-widest text-[#d4af37] font-mono">
                     Private Atelier · Jigna Khakhar
                   </span>
