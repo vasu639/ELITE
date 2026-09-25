@@ -1,0 +1,6 @@
+{
+  "name": "Elite Designer Jewelry",
+  "description": "Bespoke & fine jewelry boutique by Jigna Khakhar. Discover certified diamond, gold, and precious gemstone collections with seamless consultation booking and secure checkout.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
