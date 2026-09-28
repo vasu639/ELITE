@@ -4,7 +4,7 @@ import {
   Package, PlusCircle, CheckCircle2, Clock, AlertCircle, Eye, Edit3, Trash2,
   ShieldCheck, Upload, Sparkles, Filter, Search, User, Phone, Mail, MapPin,
   Video, ArrowRight, ExternalLink, RotateCcw, Copy, Check, LogOut, KeyRound, Lock, UserPlus,
-  Folder, FolderOpen, Image as ImageIcon, FileImage, Download, Camera, SlidersHorizontal
+  Folder, FolderOpen, Image as ImageIcon, FileImage, Download, Camera, SlidersHorizontal, MessageCircle
 } from 'lucide-react';
 import { Product, ConsultationBooking, BespokeQuoteEnquiry, OrderRecord, JewelryCategory, SalesMode, MetalType, AdminUploadedAsset } from '../types';
 import { JEWELRY_CATALOG, CATEGORIES_CONFIG } from '../data/jewelryCatalog';
@@ -51,7 +51,7 @@ const DEFAULT_ADMIN_ASSETS: AdminUploadedAsset[] = [
     netWeight: '5.20g',
     grossWeight: '5.80g',
     centerDiamond: '1.50 ct Pear Brilliant · Color F · Clarity VVS1 · Triple Excellent',
-    accentDiamonds: '28 micro-pavé diamonds (0.32 ct tw, F/VVS)',
+    accentDiamonds: '28 micro-set diamonds (0.32 ct tw, F/VVS)',
     certification: 'GIA Verified Report #2489104821',
     price: 385000,
     sku: 'EDJ-RNG-AURORA-01',
@@ -66,7 +66,7 @@ const DEFAULT_ADMIN_ASSETS: AdminUploadedAsset[] = [
       'Gross Weight': '5.80 grams',
       'BIS Sovereign Hallmark': 'Assayed with unique HUID MH99210',
       'Center Diamond': '1.50 Carat Pear Brilliant (F / VVS1)',
-      'Accent Pavé': '28 Micro-pavé diamonds (0.32 ct tw)',
+      'Accent Diamonds': '28 Micro-set diamonds (0.32 ct tw)',
       'Gemological Certificate': 'GIA Report 2489104821',
       'Mount Architecture': 'Precision 5-Prong with comfort-tapered shank'
     }
@@ -125,7 +125,7 @@ const DEFAULT_ADMIN_ASSETS: AdminUploadedAsset[] = [
     sku: 'EDJ-NCK-DECCAN-03',
     hallmark: 'BIS Hallmark 750 (MH77412)',
     huid: 'MH77412',
-    makingCharges: 'Bespoke Haute Joaillerie Benchwork',
+    makingCharges: 'Bespoke High Jewelry Benchwork',
     settingType: 'Art Deco Master Openwork Gallery',
     story: 'Heirloom Deccan choker cast in 18k white gold featuring minor-oil certified Muzo Colombian emerald.',
     specifications: {
@@ -135,12 +135,12 @@ const DEFAULT_ADMIN_ASSETS: AdminUploadedAsset[] = [
       'Center Gemstone': '4.80 ct Natural Colombian Emerald (Minor Cedar Oil)',
       'Accent Diamonds': '2.40 ct Rose-cut and full-cut diamonds (E-F/VVS)',
       'Certification': 'Gubelin Gemological Certificate + GIA Diamond Passport',
-      'Provenance': 'Jigna Khakhar High Jewelry Showroom Archive'
+      'Origin & Authenticity': 'Jigna Khakhar High Jewelry Showroom Archive'
     }
   },
   {
     id: 'asset-4',
-    name: 'Empress Micro-Pavé Diamond Tennis Bracelet',
+    name: 'Empress Micro-Set Diamond Tennis Bracelet',
     url: 'https://images.unsplash.com/photo-1611591475879-da60a37392c0?auto=format&fit=crop&w=1000&q=80',
     category: 'bracelets',
     uploadedAt: '2026-09-22',
@@ -185,7 +185,7 @@ const DEFAULT_ADMIN_ASSETS: AdminUploadedAsset[] = [
     netWeight: '9.80g',
     grossWeight: '10.90g',
     centerDiamond: '1.20 ct Pear Brilliant Solitaire Pendant + 0.90 ct tw Earring Drops',
-    accentDiamonds: 'Halo micro-pavé contour setting in 18k rose gold',
+    accentDiamonds: 'Halo micro-set contour setting in 18k rose gold',
     certification: 'GIA & IGI Verified Dual Certificates',
     price: 285000,
     sku: 'EDJ-SET-DEWDROP-05',
@@ -219,7 +219,7 @@ const DEFAULT_ADMIN_ASSETS: AdminUploadedAsset[] = [
     grossWeight: '18.80g',
     centerDiamond: 'Natural Syndicate Polki Diamonds (Uncut Natural Diamonds)',
     accentDiamonds: 'South Sea cultured seed pearl clusters and green tourmaline drops',
-    certification: 'BIS Hallmark 916 Assayed + EDJ Provenance Certificate',
+    certification: 'BIS Hallmark 916 Assayed + EDJ Authenticity Certificate',
     price: 360000,
     sku: 'EDJ-EAR-POLKI-06',
     hallmark: 'BIS Hallmark 916 (MH88320)',
@@ -270,7 +270,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
   const [confirmPasswordInput, setConfirmPasswordInput] = useState('');
   const [newStaffName, setNewStaffName] = useState('');
   const [newStaffEmail, setNewStaffEmail] = useState('');
-  const [newStaffRole, setNewStaffRole] = useState<StaffAccount['role']>('Atelier Manager');
+  const [newStaffRole, setNewStaffRole] = useState<StaffAccount['role']>('Studio Manager');
   const [newStaffPassword, setNewStaffPassword] = useState('');
 
   useEffect(() => {
@@ -344,7 +344,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
   const [diamondClarity, setDiamondClarity] = useState<string>('VVS1');
   const [diamondFluorescence, setDiamondFluorescence] = useState<string>('None / Inert');
   const [diamondSymmetry, setDiamondSymmetry] = useState<string>('Triple Excellent');
-  const [accentStonesNotes, setAccentStonesNotes] = useState<string>('36 micro-pavé diamonds (0.38 ct tw, F-G/VVS)');
+  const [accentStonesNotes, setAccentStonesNotes] = useState<string>('36 micro-set diamonds (0.38 ct tw, F-G/VVS)');
   const [laserInscription, setLaserInscription] = useState<string>('GIA 2489104821');
 
   // Certification
@@ -439,11 +439,11 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
             'BIS Hallmark & HUID': `${hallmarkRecord} · HUID: ${huidCode}`,
             'Diamond Specifications': `${diamondCut} · ${diamondColor}/${diamondClarity} · ${gemstoneTotalCarats} ct`,
             'Gemstone Center Notes': gemstoneCenterNotes || 'Center Gemstone',
-            'Accent Pavé Stones': accentStonesNotes,
+            'Accent Diamonds': accentStonesNotes,
             'Setting & Architecture': settingType,
             'Making Charges': makingCharges,
             'Certification': `${certLab} Verified Report #${certReportNumber}`,
-            'Atelier Provenance': 'Elite Designer Jewelry, Andheri West, Mumbai'
+            'Workshop Origin': 'Elite Designer Jewelry, Andheri West, Mumbai'
           }
         };
         setAdminFolderAssets(prev => [newAsset, ...prev]);
@@ -539,7 +539,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
     setDiamondClarity(prod.diamondDetails?.clarity || 'VVS1');
     setDiamondFluorescence(prod.diamondDetails?.fluorescence || 'None / Inert');
     setDiamondSymmetry(prod.diamondDetails?.symmetry || 'Triple Excellent');
-    setAccentStonesNotes(prod.accentStonesDetails || '36 micro-pavé diamonds (0.38 ct tw, F-G/VVS)');
+    setAccentStonesNotes(prod.accentStonesDetails || '36 micro-set diamonds (0.38 ct tw, F-G/VVS)');
     setCertLab(prod.certification.lab);
     setCertReportNumber(prod.certification.reportNumber);
     setStory(prod.story);
@@ -584,7 +584,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
     setDiamondClarity('VVS1');
     setDiamondFluorescence('None / Inert');
     setDiamondSymmetry('Triple Excellent');
-    setAccentStonesNotes('36 micro-pavé diamonds (0.38 ct tw, F-G/VVS)');
+    setAccentStonesNotes('36 micro-set diamonds (0.38 ct tw, F-G/VVS)');
     setCertLab('GIA');
     setCertReportNumber('GIA-2489104821');
     setLaserInscription('GIA 2489104821');
@@ -596,22 +596,22 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
 
   const handleSaveOrPublishDesign = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!designName.trim()) {
-      showNotice('Please provide a Design Name', 'error');
-      return;
-    }
+
+    // Accept ANY input for Design Name - never block or be strict. If empty, generate an automatic elegant studio title.
+    const finalName = designName.trim() || `Elite ${category.charAt(0).toUpperCase() + category.slice(1).replace('-', ' ')} Piece #${Math.floor(100 + Math.random() * 900)}`;
 
     const calculatedPrice = salesMode === 'price-on-request' ? null : (Number(priceINR) || 120000);
-    const generatedHandle = designName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    const cleanHandle = finalName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    const generatedHandle = cleanHandle || `item-${category}-${Date.now().toString().slice(-6)}`;
     const finalSku = sku.trim() || `EDJ-${category.substring(0, 3).toUpperCase()}-${Math.floor(100 + Math.random() * 900)}`;
 
     const newDesign: Product = {
       id: editingProductId || `edj-${category.substring(0, 3)}-${Date.now().toString().slice(-4)}`,
       handle: generatedHandle,
-      name: designName.trim(),
+      name: finalName,
       sku: finalSku,
       category,
-      collection: collection.trim() || 'Atelier Collection',
+      collection: collection.trim() || 'Studio Collection',
       salesMode,
       price: calculatedPrice,
       leadTimeDays: salesMode === 'ready-to-buy' ? (Number(leadTimeDays) || 2) : (Number(leadTimeDays) || 18),
@@ -650,7 +650,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
         date: '2026-09-25',
         verifiable: true,
       },
-      story: story.trim() || 'Mastercrafted in our Mumbai atelier with comfort-fit shank.',
+      story: story.trim() || 'Mastercrafted in our Mumbai workshop with comfort-fit shank.',
       specifications: {
         'Metal Purity': metalPurity || metal,
         'Net Metal Weight': `${netMetalWeight} grams`,
@@ -658,7 +658,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
         'BIS Hallmark & HUID': `${hallmarkRecord} · HUID: ${huidCode}`,
         'Diamond 4Cs': `${diamondCut} · ${diamondColor}/${diamondClarity} · ${gemstoneTotalCarats} ct`,
         'Certification': `${certLab} Report: ${certReportNumber}`,
-        'Crafting Atelier': 'Elite Designer Jewelry, Andheri West, Mumbai',
+        'Crafting Studio': 'Elite Designer Jewelry, Andheri West, Mumbai',
       },
       featured: true,
     };
@@ -764,7 +764,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
       status: 'confirmed',
       createdAt: new Date().toISOString(),
       meetingLink: newBookingMode === 'online' ? 'https://meet.google.com/edj-fine-appointment' : undefined,
-      showroomLocation: newBookingMode === 'showroom' ? 'Elite Designer Jewelry Showroom & Atelier, 634 Shree Laxmi Plaza PCS Ltd, Laxmi Industrial Estate, New Link Road, Andheri (West), Mumbai 400053' : undefined,
+      showroomLocation: newBookingMode === 'showroom' ? 'Elite Designer Jewelry Showroom & Workshop, 634 Shree Laxmi Plaza PCS Ltd, Laxmi Industrial Estate, New Link Road, Andheri (West), Mumbai 400053' : undefined,
     };
     onAddBooking(created);
     setShowNewBookingModal(false);
@@ -863,13 +863,13 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
             <EliteLogo size="sm" variant="light" className="shrink-0" />
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-serif text-base sm:text-lg tracking-tight font-medium text-white">Elite Atelier Workspace</span>
+                <span className="font-serif text-base sm:text-lg tracking-tight font-medium text-white">Elite Studio Workspace</span>
                 <span className="text-[10px] px-2 py-0.5 bg-[#d4af37]/20 text-[#d4af37] border border-[#d4af37]/40 uppercase tracking-widest font-mono">
                   {staffSession ? staffSession.role : 'Authorized Staff'}
                 </span>
               </div>
               <p className="text-[11px] text-teal-200/80 font-sans hidden sm:block">
-                Staff: <span className="font-medium text-white">{staffSession?.name || 'Jigna Khakhar'}</span> ({staffSession?.email || 'jigna@elitedesignerjewelry.com'})
+                Staff: <span className="font-medium text-white">{staffSession?.name || 'Jigna Khakhar'}</span> ({staffSession?.email || 'contact.elitedesignerjewelry@gmail.com'})
               </p>
             </div>
           </div>
@@ -989,7 +989,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
             }`}
           >
             <MessageSquare className="w-3.5 h-3.5" />
-            <span>Bespoke Enquiries ({enquiries.length})</span>
+            <span>Studio Inbox & Inquiries ({enquiries.length})</span>
           </button>
 
           <button
@@ -1048,7 +1048,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
               {/* Quick Actions Bar */}
               <div className="p-4 bg-gradient-to-r from-teal-50/50 via-teal-50/30 to-stone-50 border border-teal-100 flex flex-wrap items-center justify-between gap-4">
                 <div>
-                  <h3 className="font-serif text-lg text-[#083338] font-semibold">Jigna Khakhar Atelier Control Center</h3>
+                  <h3 className="font-serif text-lg text-[#083338] font-semibold">Jigna Khakhar Studio Control Center</h3>
                   <p className="text-xs text-stone-600">
                     Currently managing <strong>{products.length}</strong> active store pieces and <strong>{bookings.length}</strong> customer appointments.
                   </p>
@@ -1092,7 +1092,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                     {products.length} Designs
                   </p>
                   <p className="text-[11px] text-stone-500 mt-1">
-                    {products.length === 0 ? 'Catalog is empty (Ready for upload)' : 'Active in Boutique'}
+                    {products.length === 0 ? 'Catalog is empty (Ready for upload)' : 'Active in Store'}
                   </p>
                 </div>
 
@@ -1146,7 +1146,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                     {editingProductId ? 'Edit Jewelry Design' : 'Upload & Publish New Jewelry Creation'}
                   </h3>
                   <p className="text-xs text-stone-500">
-                    Add new certified diamond, gold, or precious gemstone designs directly to the boutique storefront.
+                    Add new certified diamond, gold, or precious gemstone designs directly to the store showcase.
                   </p>
                 </div>
                 {editingProductId && (
@@ -1247,7 +1247,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                           type="url"
                           value={uploadedImageUrl}
                           onChange={(e) => setUploadedImageUrl(e.target.value)}
-                          placeholder="https://images.unsplash.com/... or https://cdn.atelier.com/..."
+                          placeholder="https://images.unsplash.com/... or https://cdn.jewelrycraft.com/..."
                           className="w-full p-2 border border-stone-300 bg-white font-mono text-xs focus:outline-none focus:border-[#083338]"
                         />
                       </div>
@@ -1282,14 +1282,18 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                   
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div className="sm:col-span-2">
-                      <label className="block text-stone-600 mb-1 font-medium">Design Name *</label>
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="block text-stone-700 font-medium">Design Name / Title</label>
+                        <span className="text-[10px] text-teal-800 bg-teal-50 px-1.5 py-0.5 border border-teal-200">
+                          Flexible · Accepts any text, title, code, or SKU
+                        </span>
+                      </div>
                       <input
                         type="text"
-                        required
                         value={designName}
                         onChange={(e) => setDesignName(e.target.value)}
-                        placeholder="e.g. Maharani Pigeon-Blood Ruby & Diamond Suite"
-                        className="w-full p-2 border border-stone-300 bg-white focus:outline-none focus:border-[#083338] font-serif text-sm"
+                        placeholder="Enter any design name (e.g. Solitaire Ring, Diamond Band, Item #01, or custom title)"
+                        className="w-full p-2.5 border border-stone-300 bg-white focus:outline-none focus:border-[#083338] focus:ring-1 focus:ring-[#083338] font-sans text-sm text-[#083338]"
                       />
                     </div>
 
@@ -1333,12 +1337,12 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                         <option value="Modern Heirlooms">Modern Heirlooms</option>
                         <option value="Heritage Color">Heritage Color</option>
                         <option value="Celestial Light">Celestial Light</option>
-                        <option value="High Atelier Works">High Atelier Works</option>
+                        <option value="Masterwork Collection">Masterwork Collection</option>
                       </select>
                     </div>
 
                     <div>
-                      <label className="block text-stone-600 mb-1 font-medium">Fallback Vector Silhouette</label>
+                      <label className="block text-stone-600 mb-1 font-medium">Fallback Vector Outline</label>
                       <select
                         value={visualTag}
                         onChange={(e) => setVisualTag(e.target.value)}
@@ -1346,7 +1350,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                       >
                         <option value="ring-pear-solitaire">Pear Solitaire Ring</option>
                         <option value="ring-emerald-halo">Emerald Step-Cut Halo</option>
-                        <option value="ring-marquise-couture">Marquise Couture Ring</option>
+                        <option value="ring-marquise-designer">Marquise Designer Ring</option>
                         <option value="mangalsutra-solitaire">Solitaire Mangalsutra</option>
                         <option value="mangalsutra-geometric">Geometric Dual-Strand Mangalsutra</option>
                         <option value="mangalsutra-bridal-heritage">Bridal Kundan Mangalsutra</option>
@@ -1385,7 +1389,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
 
                     <div>
                       <label className="block text-stone-600 mb-1 font-medium">
-                        Price in INR {salesMode === 'price-on-request' ? '(Quoted via Atelier)' : '*'}
+                        Price in INR {salesMode === 'price-on-request' ? '(Quoted via Studio)' : '*'}
                       </label>
                       <input
                         type="number"
@@ -1659,12 +1663,12 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-stone-600 mb-1 font-medium">Accent / Pavé Diamonds</label>
+                      <label className="block text-stone-600 mb-1 font-medium">Accent / Micro-Set Diamonds</label>
                       <input
                         type="text"
                         value={accentStonesNotes}
                         onChange={(e) => setAccentStonesNotes(e.target.value)}
-                        placeholder="e.g. 36 micro-pavé diamonds (0.38 ct tw, F-G/VVS)"
+                        placeholder="e.g. 36 micro-set diamonds (0.38 ct tw, F-G/VVS)"
                         className="w-full p-2 border border-stone-300 bg-white"
                       />
                     </div>
@@ -1826,7 +1830,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                 {/* 8. Narrative & Craftsmanship Story */}
                 <div className="p-4 bg-white border border-stone-200 space-y-2">
                   <label className="block text-xs font-semibold uppercase tracking-wider text-[#083338]">
-                    8. Atelier Story & Craftsmanship Description
+                    8. Studio Story & Craftsmanship Description
                   </label>
                   <textarea
                     rows={3}
@@ -1839,20 +1843,38 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
 
                 {/* Submit Actions */}
                 <div className="flex items-center justify-between pt-2">
-                  <button
-                    type="button"
-                    onClick={handleResetUploadForm}
-                    className="px-4 py-2.5 border border-stone-300 text-stone-700 text-xs font-medium uppercase tracking-wider hover:bg-stone-50 cursor-pointer"
-                  >
-                    Reset Form
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={handleResetUploadForm}
+                      className="px-4 py-2.5 border border-stone-300 text-stone-700 text-xs font-medium uppercase tracking-wider hover:bg-stone-50 cursor-pointer"
+                    >
+                      {editingProductId ? 'Cancel Edit' : 'Reset Form'}
+                    </button>
+
+                    {editingProductId && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          onDeleteProduct(editingProductId);
+                          handleResetUploadForm();
+                          showNotice('Design was deleted from storefront catalog.', 'info');
+                          setActiveTab('catalog');
+                        }}
+                        className="px-4 py-2.5 bg-rose-50 text-rose-700 border border-rose-300 text-xs font-medium uppercase tracking-wider hover:bg-rose-100 cursor-pointer flex items-center gap-1.5"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                        <span>Delete Design</span>
+                      </button>
+                    )}
+                  </div>
 
                   <button
                     type="submit"
                     className="px-6 py-3 bg-[#083338] text-white border border-[#d4af37]/40 text-xs font-semibold uppercase tracking-wider hover:bg-[#0c444a] cursor-pointer shadow-md flex items-center gap-2"
                   >
                     <Check className="w-4 h-4 text-[#d4af37]" />
-                    <span>{editingProductId ? 'Update & Save Changes' : 'Publish Design to Boutique'}</span>
+                    <span>{editingProductId ? 'Update & Save Changes' : 'Publish Design to Store'}</span>
                   </button>
                 </div>
               </form>
@@ -2116,9 +2138,8 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                   ) : (
                     <button
                       onClick={() => {
-                        if (confirm('Clear all designs from store catalog?')) {
-                          onClearAllProducts();
-                        }
+                        onClearAllProducts();
+                        showNotice('All designs cleared from storefront catalog.', 'info');
                       }}
                       className="px-3.5 py-1.5 border border-rose-300 text-rose-700 hover:bg-rose-50 text-xs font-medium cursor-pointer"
                     >
@@ -2153,7 +2174,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                   </div>
 
                   {products.map((item) => (
-                    <div key={item.id} className="grid grid-cols-12 p-3 items-center hover:bg-stone-50">
+                    <div key={item.id} className="grid grid-cols-12 p-3 items-center hover:bg-stone-50 transition-colors">
                       <div className="col-span-4">
                         <p className="font-medium text-stone-900">{item.name}</p>
                         <span className="text-[10px] font-mono text-stone-400">{item.sku} · {item.metal}</span>
@@ -2175,19 +2196,24 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                       </span>
                       <div className="col-span-2 flex items-center justify-end gap-2">
                         <button
+                          type="button"
                           onClick={() => handleStartEditProduct(item)}
-                          className="p-1 text-stone-500 hover:text-[#083338] cursor-pointer"
+                          className="p-1.5 text-stone-500 hover:text-[#083338] hover:bg-stone-100 rounded-xs cursor-pointer transition-colors"
                           title="Edit Design"
                         >
                           <Edit3 className="w-4 h-4" />
                         </button>
                         <button
-                          onClick={() => {
-                            if (confirm(`Remove "${item.name}" from storefront catalog?`)) {
-                              onDeleteProduct(item.id);
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onDeleteProduct(item.id);
+                            if (editingProductId === item.id) {
+                              handleResetUploadForm();
                             }
+                            showNotice(`Removed "${item.name}" from storefront catalog.`, 'info');
                           }}
-                          className="p-1 text-stone-400 hover:text-rose-700 cursor-pointer"
+                          className="p-1.5 text-rose-600 hover:text-rose-800 hover:bg-rose-50 rounded-xs cursor-pointer transition-colors"
                           title="Delete Design"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -2355,9 +2381,8 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                           {b.status !== 'cancelled' && (
                             <button
                               onClick={() => {
-                                if (confirm(`Cancel appointment for ${b.customerName}?`)) {
-                                  onUpdateBookingStatus(b.id, 'cancelled');
-                                }
+                                onUpdateBookingStatus(b.id, 'cancelled');
+                                showNotice(`Appointment for ${b.customerName} has been cancelled.`, 'info');
                               }}
                               className="px-3 py-1 text-rose-700 hover:bg-rose-50 cursor-pointer text-xs"
                             >
@@ -2373,19 +2398,65 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
             </div>
           )}
 
-          {/* 5. BESPOKE ENQUIRIES */}
+          {/* 5. BESPOKE ENQUIRIES & STUDIO INBOX */}
           {activeTab === 'enquiries' && (
             <div className="space-y-4">
-              <div className="flex justify-between items-center text-xs">
+              {/* Studio Inbox Banner */}
+              <div className="p-4 bg-gradient-to-r from-[#042326] via-[#083338] to-[#042326] border border-[#d4af37]/40 text-white shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-3">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xs bg-[#d4af37]/20 border border-[#d4af37]/40 flex items-center justify-center shrink-0 mt-0.5">
+                    <Mail className="w-5 h-5 text-[#d4af37]" />
+                  </div>
+                  <div className="space-y-0.5">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-[#d4af37] font-semibold">
+                        Official Studio Mailbox
+                      </span>
+                      <span className="px-1.5 py-0.2 text-[9px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                        Live Connected
+                      </span>
+                    </div>
+                    <h3 className="font-serif text-lg text-white font-medium">
+                      contact.elitedesignerjewelry@gmail.com
+                    </h3>
+                    <p className="text-xs text-teal-200/80">
+                      All customer bespoke quote requests, consultation appointments, and purchase orders are routed to this inbox.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0">
+                  <a
+                    href="https://mail.google.com/mail/u/0/#inbox"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-3 py-2 bg-[#d4af37] hover:bg-[#c59b27] text-teal-950 font-semibold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs"
+                    title="Open Gmail Inbox for contact.elitedesignerjewelry@gmail.com"
+                  >
+                    <Mail className="w-3.5 h-3.5" />
+                    <span>Open in Gmail</span>
+                    <ExternalLink className="w-3 h-3 text-teal-950/70" />
+                  </a>
+
+                  <a
+                    href="mailto:contact.elitedesignerjewelry@gmail.com"
+                    className="px-3 py-2 bg-black/40 hover:bg-black/60 text-teal-200 border border-teal-500/30 font-medium text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors cursor-pointer"
+                  >
+                    <span>Test Mailbox</span>
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex justify-between items-center text-xs pt-1">
                 <span className="font-semibold text-stone-700 uppercase tracking-wider">
-                  Bespoke Quotation Queue (Page 7 Specification)
+                  Bespoke Quotation Queue · Received at contact.elitedesignerjewelry@gmail.com
                 </span>
                 <span className="text-stone-500">Auto-assigned to Jigna Khakhar</span>
               </div>
 
               {enquiries.length === 0 ? (
                 <div className="p-12 text-center text-stone-500 bg-stone-50 border border-stone-200 text-xs">
-                  No pending quotation enquiries at this moment. Customers browsing unpriced high jewelry can submit requests through the boutique.
+                  No pending quotation enquiries in the studio inbox at this moment. Customers browsing high jewelry can submit requests through the store.
                 </div>
               ) : (
                 <div className="space-y-3">
@@ -2393,8 +2464,13 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                     <div key={enq.id} className="p-4 bg-white border border-stone-200 text-xs space-y-3 shadow-xs">
                       <div className="flex justify-between items-start">
                         <div>
-                          <span className="font-mono text-[10px] text-stone-400">{enq.id} · {new Date(enq.createdAt).toLocaleDateString()}</span>
-                          <h4 className="font-serif text-base font-semibold text-[#083338]">{enq.productName}</h4>
+                          <div className="flex items-center gap-2">
+                            <span className="font-mono text-[10px] text-stone-400">{enq.id} · {new Date(enq.createdAt).toLocaleDateString()}</span>
+                            <span className="text-[10px] text-teal-800 bg-teal-50 px-1 py-0.2 border border-teal-200 font-mono">
+                              To: contact.elitedesignerjewelry@gmail.com
+                            </span>
+                          </div>
+                          <h4 className="font-serif text-base font-semibold text-[#083338] mt-0.5">{enq.productName}</h4>
                           <p className="text-stone-600">Client: <strong>{enq.customerName}</strong> ({enq.customerEmail} · {enq.customerPhone})</p>
                         </div>
                         <span className={`px-2 py-0.5 text-[10px] uppercase font-mono border ${
@@ -2418,22 +2494,47 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                         </p>
                       )}
 
-                      {/* Quote Generator Action */}
-                      <div className="pt-2 border-t border-stone-100 flex flex-wrap items-center gap-2">
-                        <label className="text-stone-600 font-medium">Issue Formal Quote (INR):</label>
-                        <input
-                          type="number"
-                          placeholder="e.g. 580000"
-                          value={quoteInput[enq.id] || ''}
-                          onChange={(e) => setQuoteInput({ ...quoteInput, [enq.id]: e.target.value })}
-                          className="p-1.5 border border-stone-300 text-xs w-36 font-mono"
-                        />
-                        <button
-                          onClick={() => handleSendQuote(enq.id)}
-                          className="px-4 py-1.5 bg-[#083338] text-white font-medium hover:bg-[#0c444a] border border-[#d4af37]/40 cursor-pointer text-xs"
-                        >
-                          Send Official Quote
-                        </button>
+                      {/* Direct Client Response & Quote Generator Action */}
+                      <div className="pt-2 border-t border-stone-100 flex flex-wrap items-center justify-between gap-3">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <label className="text-stone-600 font-medium">Issue Formal Quote (INR):</label>
+                          <input
+                            type="number"
+                            placeholder="e.g. 580000"
+                            value={quoteInput[enq.id] || ''}
+                            onChange={(e) => setQuoteInput({ ...quoteInput, [enq.id]: e.target.value })}
+                            className="p-1.5 border border-stone-300 text-xs w-36 font-mono"
+                          />
+                          <button
+                            onClick={() => handleSendQuote(enq.id)}
+                            className="px-4 py-1.5 bg-[#083338] text-white font-medium hover:bg-[#0c444a] border border-[#d4af37]/40 cursor-pointer text-xs"
+                          >
+                            Send Official Quote
+                          </button>
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                          <a
+                            href={`mailto:${enq.customerEmail}?subject=${encodeURIComponent(`Elite Designer Jewelry - Bespoke Quote for ${enq.productName}`)}&body=${encodeURIComponent(`Dear ${enq.customerName},\n\nThank you for reaching out to Elite Designer Jewelry regarding your inquiry for ${enq.productName}.\n\nWe have reviewed your request and would be pleased to assist with custom specifications.\n\nWarm regards,\nJigna Khakhar\nElite Designer Jewelry\ncontact.elitedesignerjewelry@gmail.com\n+91 9821156861`)}`}
+                            className="px-3 py-1.5 bg-stone-100 hover:bg-stone-200 text-[#083338] border border-stone-300 text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer"
+                            title="Reply to client from contact.elitedesignerjewelry@gmail.com"
+                          >
+                            <Mail className="w-3.5 h-3.5 text-[#0d7480]" />
+                            <span>Reply via Email</span>
+                          </a>
+
+                          {enq.customerPhone && (
+                            <a
+                              href={`https://wa.me/${enq.customerPhone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hello ${enq.customerName}, this is Jigna Khakhar from Elite Designer Jewelry following up on your bespoke inquiry for ${enq.productName}.`)}`}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer"
+                            >
+                              <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                              <span>WhatsApp</span>
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -2518,7 +2619,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                     </span>
                   </div>
                   <p className="text-xs text-stone-300">
-                    Logged in as <strong className="text-amber-200">{staffSession?.name || 'Jigna Khakhar'}</strong> ({staffSession?.email || 'jigna@elitedesignerjewelry.com'}) · Role: {staffSession?.role || 'Owner & Principal Jeweler'}
+                    Logged in as <strong className="text-amber-200">{staffSession?.name || 'Jigna Khakhar'}</strong> ({staffSession?.email || 'contact.elitedesignerjewelry@gmail.com'}) · Role: {staffSession?.role || 'Owner & Principal Jeweler'}
                   </p>
                   <p className="text-[11px] text-stone-400 font-mono">
                     Session established: {staffSession?.loginTime ? new Date(staffSession.loginTime).toLocaleString() : 'Active Station'}
@@ -2547,7 +2648,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                       <span>Change Security Password</span>
                     </h4>
                     <p className="text-xs text-stone-500">
-                      Update the login password for your atelier staff account.
+                      Update the login password for your studio staff account.
                     </p>
                   </div>
 
@@ -2604,10 +2705,10 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                   <div className="border-b border-stone-100 pb-2">
                     <h4 className="font-serif text-base text-[#083338] flex items-center gap-2">
                       <UserPlus className="w-4 h-4 text-[#0d7480]" />
-                      <span>Add Atelier Staff Member</span>
+                      <span>Add Studio Staff Member</span>
                     </h4>
                     <p className="text-xs text-stone-500">
-                      Grant atelier access to an authorized team member.
+                      Grant studio access to an authorized team member.
                     </p>
                   </div>
 
@@ -2637,13 +2738,13 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-stone-700 font-medium mb-1">Atelier Role *</label>
+                      <label className="block text-stone-700 font-medium mb-1">Studio Role *</label>
                       <select
                         value={newStaffRole}
                         onChange={(e) => setNewStaffRole(e.target.value as any)}
                         className="w-full p-2 border border-stone-300 bg-[#FFFDFB] focus:border-[#083338] outline-none"
                       >
-                        <option value="Atelier Manager">Atelier Manager</option>
+                        <option value="Studio Manager">Studio Manager</option>
                         <option value="Master Gemologist">Master Gemologist</option>
                         <option value="Senior Consultant">Senior Consultant</option>
                         <option value="Owner & Principal Jeweler">Owner & Principal Jeweler</option>
@@ -2679,7 +2780,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
                 <div className="flex justify-between items-center border-b border-stone-100 pb-2">
                   <div>
                     <h4 className="font-serif text-base text-[#083338]">Authorized Staff Registry</h4>
-                    <p className="text-xs text-stone-500">All registered credentials permitted to access the atelier workspace.</p>
+                    <p className="text-xs text-stone-500">All registered credentials permitted to access the studio workspace.</p>
                   </div>
                   <span className="font-mono text-xs text-stone-400">Total: {staffAccountsList.length} Accounts</span>
                 </div>
@@ -2944,7 +3045,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
             <div className="flex justify-between items-center border-b pb-3">
               <div>
                 <span className="text-[10px] uppercase font-mono text-[#0d7480] font-semibold">
-                  Atelier Media Archive
+                  Studio Media Archive
                 </span>
                 <h4 className="font-serif text-lg text-[#083338] font-semibold">
                   Select Design Image from Admin Folder
@@ -3051,7 +3152,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
             <div className="flex justify-between items-start border-b pb-3">
               <div>
                 <span className="text-[10px] uppercase font-mono text-[#d4af37] font-semibold bg-[#042326] px-2 py-0.5">
-                  Atelier Master Specification Record
+                  Studio Master Specification Record
                 </span>
                 <h3 className="font-serif text-xl text-[#083338] font-normal mt-1">
                   {selectedAssetForSpecs.name}
@@ -3159,7 +3260,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({
 
               {selectedAssetForSpecs.story && (
                 <div className="p-2.5 bg-stone-50 border border-stone-200 text-stone-600 text-[11px] leading-relaxed">
-                  <span className="text-[10px] text-stone-500 uppercase font-mono block font-medium mb-0.5">Design Ethos & Atelier Notes</span>
+                  <span className="text-[10px] text-stone-500 uppercase font-mono block font-medium mb-0.5">Design Ethos & Studio Notes</span>
                   {selectedAssetForSpecs.story}
                 </div>
               )}

@@ -372,7 +372,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                   className="w-full accent-[#432032] cursor-pointer"
                 />
                 <p className="text-[11px] text-stone-500 mt-1">
-                  Note: Bespoke and high-atelier creations with Price on Request are preserved when &quot;Any Budget&quot; is selected.
+                  Note: Bespoke and master studio creations with Price on Request are preserved when &quot;Any Budget&quot; is selected.
                 </p>
               </div>
 

@@ -48,7 +48,7 @@ export const Header: React.FC<HeaderProps> = ({
           onClick={onOpenConsultation}
           className="hidden md:inline text-[#d4af37] hover:text-white underline underline-offset-2 transition-colors cursor-pointer font-serif"
         >
-          Book Atelier Consultation · Mumbai Showroom & HD Video
+          Book Studio Consultation · Mumbai Showroom & HD Video
         </button>
       </aside>
 
@@ -297,7 +297,7 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => { onOpenConsultation(); setMobileMenuOpen(false); }}
                 className="w-full text-center py-3 bg-[#083338] text-white text-xs font-semibold uppercase tracking-wider border border-[#d4af37]/40 shadow-sm"
               >
-                Book Atelier Consultation
+                Book Studio Consultation
               </button>
               <div className="flex gap-4 pt-2 text-xs text-stone-600 justify-center">
                 <button onClick={() => { onOpenStory(); setMobileMenuOpen(false); }}>Our Story</button>

@@ -74,7 +74,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
       status: 'confirmed',
       createdAt: new Date().toISOString(),
       meetingLink: meetingMode === 'online' ? 'https://meet.google.com/edj-fine-appointment' : undefined,
-      showroomLocation: meetingMode === 'showroom' ? 'Elite Designer Jewelry Showroom & Atelier, 634 Shree Laxmi Plaza PCS Ltd, Laxmi Industrial Estate, New Link Road, Andheri (West), Mumbai 400053' : undefined,
+      showroomLocation: meetingMode === 'showroom' ? 'Elite Designer Jewelry Showroom & Workshop, 634 Shree Laxmi Plaza PCS Ltd, Laxmi Industrial Estate, New Link Road, Andheri (West), Mumbai 400053' : undefined,
     };
 
     setConfirmedBooking(newBooking);
@@ -94,7 +94,7 @@ DTSTART:20260928T053000Z
 DTEND:20260928T060000Z
 SUMMARY:Elite Designer Jewelry Consultation with ${confirmedBooking.consultantName}
 DESCRIPTION:Private fine jewelry consultation. Booking Ref: ${confirmedBooking.id}.
-LOCATION:${confirmedBooking.mode === 'online' ? 'Google Meet Video' : 'Mumbai Atelier'}
+LOCATION:${confirmedBooking.mode === 'online' ? 'Google Meet Video' : 'Mumbai Workshop'}
 STATUS:CONFIRMED
 END:VEVENT
 END:VCALENDAR`;
@@ -120,7 +120,7 @@ END:VCALENDAR`;
         <div className="px-6 py-4 border-b border-teal-100 flex items-center justify-between bg-[#042326] text-white">
           <div>
             <span className="text-[10px] uppercase tracking-widest text-[#d4af37] font-semibold">
-              Atelier Appointment
+              Workshop Appointment
             </span>
             <h2 className="font-serif text-xl sm:text-2xl text-white">
               Complimentary Consultation
@@ -201,7 +201,7 @@ END:VCALENDAR`;
                 <div className="w-10 h-10 bg-teal-50 text-[#083338] flex items-center justify-center mb-3">
                   <MapPin className="w-5 h-5" />
                 </div>
-                <h3 className="font-serif text-lg text-[#083338]">Mumbai Atelier Showroom</h3>
+                <h3 className="font-serif text-lg text-[#083338]">Mumbai Workshop Showroom</h3>
                 <p className="text-xs text-stone-500 mt-1">
                   Private 45-minute personal appointment at Shree Laxmi Plaza, Andheri (West). Tactile viewing of certified loose gemstones, solitaires & gold.
                 </p>
@@ -307,7 +307,7 @@ END:VCALENDAR`;
             <div className="p-3 bg-amber-50/70 border border-amber-200 text-xs flex items-center justify-between">
               <div>
                 <span className="font-semibold text-amber-950">
-                  {meetingMode === 'online' ? 'Online Video Session' : 'Mumbai Atelier Visit'}
+                  {meetingMode === 'online' ? 'Online Video Session' : 'Mumbai Workshop Visit'}
                 </span>
                 <p className="text-stone-600">{selectedDate} at {selectedSlot} IST</p>
               </div>
@@ -432,7 +432,7 @@ END:VCALENDAR`;
                 Your Appointment is Confirmed
               </h3>
               <p className="text-xs text-stone-600 mt-2 max-w-md mx-auto">
-                A confirmation invite and calendar details have been dispatched to <strong>{confirmedBooking.customerEmail}</strong>.
+                A confirmation invite and calendar details have been dispatched to <strong>{confirmedBooking.customerEmail}</strong>. For queries or rescheduling, email <a href="mailto:contact.elitedesignerjewelry@gmail.com" className="text-[#083338] underline font-medium">contact.elitedesignerjewelry@gmail.com</a>.
               </p>
             </div>
 
@@ -448,7 +448,7 @@ END:VCALENDAR`;
               <div className="flex justify-between">
                 <span className="text-stone-500">Mode:</span>
                 <span className="font-medium text-stone-800">
-                  {confirmedBooking.mode === 'online' ? 'Google Meet Video Session' : 'Mumbai Atelier Showroom'}
+                  {confirmedBooking.mode === 'online' ? 'Google Meet Video Session' : 'Mumbai Workshop Showroom'}
                 </span>
               </div>
               {confirmedBooking.meetingLink && (
@@ -481,7 +481,7 @@ END:VCALENDAR`;
                 onClick={onClose}
                 className="px-5 py-2.5 border border-stone-300 text-stone-700 text-xs font-medium uppercase tracking-wider hover:bg-stone-50 cursor-pointer"
               >
-                Return to Boutique
+                Return to Store
               </button>
             </div>
           </div>

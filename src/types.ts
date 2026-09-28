@@ -63,7 +63,7 @@ export interface Product {
   stockQuantity: number;
   
   // Visual presentation
-  imageTag: string; // descriptive icon / jewelry silhouette render style
+  imageTag: string; // descriptive icon / jewelry outline render style
   imageUrl?: string; // high-resolution uploaded photograph of the design
   additionalImages?: string[]; // multi-angle gallery photos
   galleryAngles: string[];
@@ -76,7 +76,7 @@ export interface Product {
   hallmarkRecord: string;
   huidCode?: string; // 6-digit alphanumeric unique BIS HUID code
   makingCharges?: string; // e.g. "₹850 / gram" or "12%"
-  settingType?: string; // e.g. "4-Prong Comfort Crown" or "Micro-Pavé Halo"
+  settingType?: string; // e.g. "4-Prong Comfort Crown" or "Micro-Set Halo"
   
   // Gemstones & Diamond 4Cs
   naturalStones: NaturalStoneDisclosure;
@@ -88,7 +88,7 @@ export interface Product {
     fluorescence?: string; // e.g. "None / Inert"
     symmetry?: string; // e.g. "Triple Excellent"
   };
-  accentStonesDetails?: string; // e.g. "38 micro-pavé round diamonds (0.42 ct, F-G/VVS)"
+  accentStonesDetails?: string; // e.g. "38 micro-set round diamonds (0.42 ct, F-G/VVS)"
   
   // Category-specific attributes
   earringStyle?: 'Stud' | 'Hoop' | 'Drop' | 'Chandelier';

@@ -15,7 +15,7 @@ export const JewelryCareModal: React.FC<JewelryCareModalProps> = ({ onClose }) =
         <div className="px-6 py-4 border-b border-teal-100 flex items-center justify-between bg-[#042326] text-white">
           <div>
             <span className="text-[10px] uppercase tracking-widest text-[#d4af37] font-semibold">
-              Atelier Care Manual
+              Fine Jewelry Care Manual
             </span>
             <h3 className="font-serif text-xl text-white">
               Fine Jewelry Longevity & Gemstone Care
@@ -55,7 +55,7 @@ export const JewelryCareModal: React.FC<JewelryCareModalProps> = ({ onClose }) =
           <div className="p-4 bg-white border border-teal-100 space-y-2">
             <h4 className="font-serif text-base text-[#083338] flex items-center gap-1.5">
               <Shield className="w-4 h-4 text-[#0d7480]" />
-              <span>Atelier Storage & Complimentary Annual Prong Check</span>
+              <span>Studio Storage & Complimentary Annual Prong Check</span>
             </h4>
             <p className="text-stone-600 leading-relaxed">
               Store each piece individually in its bespoke Elite Designer Jewelry plush pouch or rigid velvet case to prevent diamonds from scratching softer precious metals. We provide complimentary annual prong tightening and sonic cleaning for all Jigna Khakhar clients at our Mumbai showroom in Andheri West.

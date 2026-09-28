@@ -89,7 +89,7 @@ export const JEWELRY_CATALOG: Product[] = [
       date: '2026-07-04',
       verifiable: true,
     },
-    story: 'Featuring an untreated Colombian Muzo emerald displaying luminous green saturation, framed by hand-sculpted pavé diamonds on rich 18k yellow gold.',
+    story: 'Featuring an untreated Colombian Muzo emerald displaying luminous green saturation, framed by hand-sculpted micro-set diamonds on rich 18k yellow gold.',
     specifications: {
       'Center Gemstone': 'Natural Colombian Emerald (1.85ct)',
       'Accent Diamonds': '24 Round Brilliants (F-G, VS)',
@@ -104,12 +104,12 @@ export const JEWELRY_CATALOG: Product[] = [
     name: 'Imperial Marquise & Oval Diamond Crest Ring',
     sku: 'EDJ-RNG-IMP03',
     category: 'rings',
-    collection: 'High Atelier Works',
+    collection: 'Masterwork Collection',
     salesMode: 'price-on-request',
     price: null, // Price on request - never 0!
     leadTimeDays: 28,
     stockQuantity: 0,
-    imageTag: 'ring-marquise-couture',
+    imageTag: 'ring-marquise-designer',
     galleryAngles: ['front-hero', 'architectural-profile', 'worn-hand'],
     metal: 'Platinum 950',
     netMetalWeightGrams: 9.40,
@@ -143,7 +143,7 @@ export const JEWELRY_CATALOG: Product[] = [
     specifications: {
       'Center Stone Grade': 'GIA D Color / Internally Flawless (Type IIa)',
       'Primary Metal': 'Solid Platinum 950',
-      'Atelier Hours': '110 Hours of Master Bench Crafting',
+      'Workshop Crafting Hours': '110 Hours of Master Bench Crafting',
       'Sales Route': 'Personal Appointment or Bespoke Quote'
     },
     featured: false,
@@ -190,7 +190,7 @@ export const JEWELRY_CATALOG: Product[] = [
     story: 'Engineered for the contemporary woman. A luminous bezel-set 0.38 ct diamond suspended on an understated single gold strand accented with micro-faceted black onyx beads that will not tangle or catch on fine clothing.',
     specifications: {
       'Chain Length': '18 inches (45.7 cm) with 1-inch extender rings',
-      'Pendant Motif': 'Modern Bezel-Set Solitaire with Open Back',
+      'Pendant Design': 'Modern Bezel-Set Solitaire with Open Back',
       'Black Bead Pattern': 'Alternating 3-bead stations with solid 18k beads',
       'Strand Weight': '5.4g Net Gold',
       'Closure Mechanism': 'Heavy-duty lobster lock with security tab'
@@ -235,7 +235,7 @@ export const JEWELRY_CATALOG: Product[] = [
       date: '2026-07-29',
       verifiable: true,
     },
-    story: 'Two fluid strands of auspicious black beads unite at a tailored geometric chevron motif, set with 38 fiery diamonds in 18k rose gold.',
+    story: 'Two fluid strands of auspicious black beads unite at a tailored geometric chevron design, set with 38 fiery diamonds in 18k rose gold.',
     specifications: {
       'Chain Length': '22 inches (55.8 cm)',
       'Strand Architecture': 'Double Strand Fine Italian Link',
@@ -267,7 +267,7 @@ export const JEWELRY_CATALOG: Product[] = [
       treatment: 'Pure 24k gold foil back (Kundan setting tradition)',
       count: 42,
       totalCaratWeight: 3.80,
-      centerStone: 'Royal Padam motif center polki with seed pearl tassels',
+      centerStone: 'Royal Padam centerpiece polki with seed pearl tassels',
     },
     mangalsutraLengthInches: 36,
     mangalsutraLengthCm: 91.4,
@@ -328,7 +328,7 @@ export const JEWELRY_CATALOG: Product[] = [
       date: '2026-05-30',
       verifiable: true,
     },
-    story: 'A cohesive three-piece ensemble designed to move like glistening droplets of water. Both drop earrings and the matching pendant echo the identical diamond cluster proportions.',
+    story: 'A cohesive three-piece jewelry set designed to move like glistening droplets of water. Both drop earrings and the matching pendant echo the identical diamond cluster proportions.',
     specifications: {
       'Set Contents': '1 Pendant + 2 Matching Drop Earrings',
       'Included Chain': '18-inch 18k White Gold Spiga Chain (adjustable to 16-inch)',
@@ -455,7 +455,7 @@ export const JEWELRY_CATALOG: Product[] = [
       treatment: 'Traditional 24k gold leaf foil backing',
       count: 56,
       totalCaratWeight: 4.80,
-      centerStone: 'Tiered crescent chand motif with natural emerald drops',
+      centerStone: 'Tiered crescent chand design with natural emerald drops',
     },
     earringStyle: 'Chandelier',
     earringClosure: 'Omega Clip',
@@ -500,7 +500,7 @@ export const JEWELRY_CATALOG: Product[] = [
       count: 19,
       totalCaratWeight: 0.55,
       centerStone: '0.25 ct central brilliant diamond',
-      accentStones: '18 radiant tapered rays set with micro-pave diamonds',
+      accentStones: '18 radiant tapered rays set with micro-set diamonds',
     },
     pendantDimensions: '18mm diameter circular sunburst',
     chainIncluded: false,
@@ -641,7 +641,7 @@ export const JEWELRY_CATALOG: Product[] = [
       date: '2026-03-28',
       verifiable: true,
     },
-    story: 'The pinnacle of Jigna Khakhar’s haute joaillerie repertoire. Hand-cast in 22k gold and engraved with intricate floral enamel (Meenakari) along the inner contour, preserving 18th-century royal Deccan craftsmanship.',
+    story: 'The pinnacle of Jigna Khakhar’s high jewelry collection. Hand-cast in 22k gold and engraved with intricate floral enamel (Meenakari) along the inner contour, preserving 18th-century royal Deccan craftsmanship.',
     specifications: {
       'Gold Purity': '22K Gold (916 Hallmarked)',
       'Net Weight': '84.5 grams pure gold',
@@ -654,8 +654,8 @@ export const JEWELRY_CATALOG: Product[] = [
   // 7. BRACELETS
   {
     id: 'edj-brc-001',
-    handle: 'etoile-flexible-diamond-tennis-bracelet',
-    name: 'Étoile Classic 4-Prong Diamond Tennis Bracelet',
+    handle: 'celestial-flexible-diamond-tennis-bracelet',
+    name: 'Celestial Classic 4-Prong Diamond Tennis Bracelet',
     sku: 'EDJ-BRC-ETO01',
     category: 'bracelets',
     collection: 'Signature Solitaires',
@@ -777,7 +777,7 @@ export const CATEGORIES_CONFIG: {
     key: 'pendant-sets',
     title: 'Pendant Sets',
     description: 'Coordinated pendant and earring suites with harmonized stones.',
-    tagline: 'Balanced tripartite ensembles ready to adorn.'
+    tagline: 'Balanced three-piece jewelry sets ready to adorn.'
   },
   {
     key: 'mangalsutras',

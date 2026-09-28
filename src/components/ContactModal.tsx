@@ -34,7 +34,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ onClose, onOpenConsu
           <div className="p-4 bg-white border border-teal-100 space-y-2 shadow-xs">
             <div className="flex items-center gap-2 text-[#083338] font-semibold text-sm">
               <MapPin className="w-4 h-4 text-[#0d7480]" />
-              <span>Flagship Private Showroom & Atelier</span>
+              <span>Flagship Private Showroom & Studio</span>
             </div>
             <p className="text-stone-800 leading-relaxed font-sans text-xs">
               634, Shree Laxmi Plaza PCS Ltd<br />

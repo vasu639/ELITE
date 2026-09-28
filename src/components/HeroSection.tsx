@@ -32,7 +32,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="flex items-center gap-3">
               <EliteLogo size="sm" variant="light" className="shrink-0 drop-shadow-[0_2px_10px_rgba(212,175,55,0.4)]" />
               <div className="flex flex-wrap items-center gap-2 text-xs font-sans tracking-[0.2em] uppercase text-[#d4af37] font-medium">
-                <span>Haute Joaillerie Atelier</span>
+                <span>Fine Jewelry Studio</span>
                 <span aria-hidden="true">·</span>
                 <span>Mumbai Flagship</span>
                 <span aria-hidden="true">·</span>
@@ -65,7 +65,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 className="px-6 py-3.5 border border-[#d4af37]/40 text-[#f5ecc7] hover:bg-white/10 text-xs font-semibold uppercase tracking-wider transition-all duration-200 flex items-center gap-2 cursor-pointer backdrop-blur-xs"
               >
                 <Calendar className="w-4 h-4 text-[#d4af37]" />
-                <span>Book Atelier Consultation</span>
+                <span>Book Studio Consultation</span>
               </button>
             </div>
 
@@ -86,7 +86,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
 
-          {/* Right Column: Hero Showcase Piece or Atelier Holding Showcase (5 cols) */}
+          {/* Right Column: Hero Showcase Piece or Studio Holding Showcase (5 cols) */}
           <div className="lg:col-span-5 z-10">
             {heroProduct ? (
               <div 
@@ -128,16 +128,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <div className="flex items-center gap-3">
                   <EliteLogo size="sm" variant="light" />
                   <span className="text-[10px] uppercase tracking-widest text-[#d4af37] font-mono">
-                    Private Atelier · Jigna Khakhar
+                    Private Studio · Jigna Khakhar
                   </span>
                 </div>
 
                 <h3 className="font-serif text-2xl text-white font-normal">
-                  Bespoke High Jewelry Atelier
+                  Bespoke High Jewelry Studio
                 </h3>
 
                 <p className="text-xs text-teal-100/80 leading-relaxed font-light">
-                  Founder and master jeweler Jigna Khakhar crafts individual solitaires, certified natural diamonds, and heirloom mangalsutras at our Mumbai atelier. Reserve an appointment for custom bespoke design.
+                  Founder and master jeweler Jigna Khakhar crafts individual solitaires, certified natural diamonds, and heirloom mangalsutras at our Mumbai studio. Reserve an appointment for custom bespoke design.
                 </p>
 
                 <div className="pt-2 space-y-2.5">

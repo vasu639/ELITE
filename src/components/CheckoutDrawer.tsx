@@ -91,7 +91,7 @@ export const CheckoutDrawer: React.FC<CheckoutDrawerProps> = ({
     if (!confirmedOrder) return;
     const invoiceText = `======================================================
 ELITE DESIGNER JEWELRY BY JIGNA KHAKHAR
-Tax Invoice & Provenance Guarantee
+Tax Invoice & Authenticity Guarantee
 634, Shree Laxmi Plaza PCS Ltd, Laxmi Industrial Estate,
 New Link Road, Andheri (West), Mumbai-400053
 Contact: +91 9821156861 / +91 7506666861
@@ -135,7 +135,7 @@ Lifetime buyback and metal exchange valid at our Mumbai showroom.`;
         <div className="px-6 py-4 border-b border-teal-100 flex items-center justify-between bg-[#042326] text-white">
           <div>
             <span className="text-[10px] uppercase tracking-widest text-[#d4af37] font-semibold">
-              Elite Boutique Checkout
+              Elite Jewelry Checkout
             </span>
             <h3 className="font-serif text-lg text-white">
               {step === 'cart' && 'Your Shopping Bag'}
@@ -412,7 +412,7 @@ Lifetime buyback and metal exchange valid at our Mumbai showroom.`;
                     <p className="text-stone-500 mt-0.5">Recommended for purchases above ₹2,00,000</p>
                     {paymentMethod === 'wire' && (
                       <div className="mt-2 p-2 bg-amber-50 text-[11px] text-amber-900">
-                        Atelier account details will be generated on confirmation with price lock for 24 hours.
+                        Bank transfer details will be generated on confirmation with price lock for 24 hours.
                       </div>
                     )}
                   </div>
@@ -492,7 +492,7 @@ Lifetime buyback and metal exchange valid at our Mumbai showroom.`;
                   onClick={onClose}
                   className="px-5 py-2.5 border border-stone-300 text-stone-700 text-xs font-medium uppercase tracking-wider hover:bg-stone-50 cursor-pointer"
                 >
-                  Return to Boutique
+                  Return to Store
                 </button>
               </div>
             </div>

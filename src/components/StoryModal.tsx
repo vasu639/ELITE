@@ -19,7 +19,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({ onClose, onOpenConsultat
             <EliteLogo size="sm" variant="light" className="shrink-0" />
             <div>
               <span className="text-[10px] uppercase tracking-widest text-[#d4af37] font-semibold">
-                The Atelier Narrative
+                The Studio Story
               </span>
               <h3 className="font-serif text-xl sm:text-2xl text-white">
                 Elite Designer Jewelry by Jigna Khakhar
@@ -41,7 +41,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({ onClose, onOpenConsultat
               Founded by master jeweler and creative director <strong>Jigna Khakhar</strong>, Elite Designer Jewelry emerged from a dedication to harmonizing royal Indian heritage with contemporary European structural silhouettes. Each piece is an intimate dialogue between rare natural gems and disciplined metalwork.
             </p>
             <p>
-              Operating from our private atelier in Andheri (West), Mumbai, Jigna Khakhar leads a tight-knit guild of master setters, lapidaries, and polki artisans whose families have guarded ancestral goldsmithing traditions across generations.
+              Operating from our private studio in Andheri (West), Mumbai, Jigna Khakhar leads a tight-knit guild of master setters, lapidaries, and polki artisans whose families have guarded ancestral goldsmithing traditions across generations.
             </p>
           </div>
 
@@ -84,7 +84,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({ onClose, onOpenConsultat
 
           <div className="pt-4 border-t border-stone-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
             <div className="text-stone-500">
-              <span className="block font-medium text-stone-700">Flagship Showroom & Atelier:</span>
+              <span className="block font-medium text-stone-700">Flagship Showroom & Studio:</span>
               <span>634, Shree Laxmi Plaza PCS Ltd, Laxmi Industrial Estate, New Link Road, Andheri (W), Mumbai-400053</span>
             </div>
             <button

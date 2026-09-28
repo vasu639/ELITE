@@ -43,7 +43,7 @@ export const Footer: React.FC<FooterProps> = ({
               </div>
             </div>
             <p className="text-teal-100/80 text-xs leading-relaxed max-w-sm">
-              Dedicated to authentic craftsmanship, conflict-free certified diamonds, BIS hallmarked gold, and bespoke consultation experiences at our Mumbai flagship atelier.
+              Dedicated to authentic craftsmanship, conflict-free certified diamonds, BIS hallmarked gold, and bespoke consultation experiences at our Mumbai flagship studio.
             </p>
             <div className="pt-2 flex flex-col gap-2 text-teal-100/70 text-[11px]">
               <div className="flex items-start gap-2">
@@ -101,7 +101,7 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
 
-          {/* Col 3: Atelier & Services */}
+          {/* Col 3: Studio & Services */}
           <div className="space-y-3">
             <p className="font-serif text-sm tracking-wider uppercase text-[#d4af37] font-semibold">
               Contact & Services
@@ -174,8 +174,8 @@ export const Footer: React.FC<FooterProps> = ({
               <button
                 onClick={onOpenStaffLogin}
                 className="text-teal-500 hover:text-[#d4af37] transition-colors ml-1 p-0.5 cursor-pointer inline-flex items-center gap-1 opacity-40 hover:opacity-100 text-[10px]"
-                title="Atelier Staff Workspace (Alt+S)"
-                aria-label="Atelier Staff Access"
+                title="Studio Staff Workspace (Alt+S)"
+                aria-label="Studio Staff Access"
               >
                 <Lock className="w-2.5 h-2.5" />
                 <span className="font-mono">Staff</span>

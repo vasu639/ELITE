@@ -1,3 +1,4 @@
+import { saveOrderToFirestore, saveConsultationToFirestore, saveQuotationToFirestore, saveProductToFirestore, deleteProductFromFirestore, fetchProductsFromFirestore } from './services/firestoreService';
 import React, { useState, useMemo, useEffect } from 'react';
 import { Product, CartItem, ShortlistItem, ConsultationBooking, BespokeQuoteEnquiry, OrderRecord, JewelryCategory } from './types';
 import { JEWELRY_CATALOG, CATEGORIES_CONFIG } from './data/jewelryCatalog';
@@ -74,6 +75,7 @@ export default function App() {
 
   const handleAddProduct = (newProduct: Product) => {
     setProducts(prev => [newProduct, ...prev]);
+    saveProductToFirestore(newProduct).catch(e => console.error('Firestore product sync error:', e));
   };
 
   const handleUpdateProduct = (updated: Product) => {
@@ -81,8 +83,17 @@ export default function App() {
   };
 
   const handleDeleteProduct = (productId: string) => {
-    setProducts(prev => prev.filter(p => p.id !== productId));
+    setProducts(prev => {
+      const next = prev.filter(p => p.id !== productId);
+      try {
+        localStorage.setItem('edj_uploaded_products', JSON.stringify(next));
+      } catch (e) {
+        console.error(e);
+      }
+      return next;
+    });
     setShortlist(prev => prev.filter(s => s.productId !== productId));
+    deleteProductFromFirestore(productId).catch(e => console.error('Firestore product delete error:', e));
   };
 
   const handleResetSampleCatalog = () => {
@@ -194,7 +205,7 @@ export default function App() {
       shortlistedProductIds: ['edj-mng-003', 'edj-nck-002'],
       status: 'confirmed',
       createdAt: '2026-09-24T10:00:00Z',
-      showroomLocation: 'Elite Designer Jewelry Showroom & Atelier, 634 Shree Laxmi Plaza PCS Ltd, Laxmi Industrial Estate, New Link Road, Andheri (West), Mumbai 400053',
+      showroomLocation: 'Elite Designer Jewelry Showroom & Workshop, 634 Shree Laxmi Plaza PCS Ltd, Laxmi Industrial Estate, New Link Road, Andheri (West), Mumbai 400053',
     }
   ]);
 
@@ -452,7 +463,7 @@ export default function App() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between mb-4">
                 <span className="text-[11px] uppercase tracking-widest font-semibold text-[#0d7480]">
-                  The Seven Atelier Disciplines
+                  The Seven Workshop Disciplines
                 </span>
                 <span className="text-xs text-stone-500 hidden sm:inline">
                   Select any category to explore specifications & certified pieces
@@ -496,7 +507,7 @@ export default function App() {
           {filters.category !== 'all' && (
             <div className="mb-6 pb-4 border-b border-stone-200 text-left">
               <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-[#0d7480] font-semibold mb-1">
-                <span>Atelier Discipline</span>
+                <span>Workshop Discipline</span>
                 <span>·</span>
                 <span className="capitalize">{filters.category}</span>
               </div>
@@ -518,10 +529,10 @@ export default function App() {
               
               <div className="space-y-2">
                 <span className="text-[11px] uppercase tracking-widest font-mono text-[#0d7480] font-semibold block">
-                  Elite Designer Jewelry · Haute Joaillerie
+                  Elite Designer Jewelry · High Jewelry
                 </span>
                 <h3 className="font-serif text-2xl sm:text-3xl text-[#083338] font-normal">
-                  The Atelier Collection is Currently Being Curated
+                  The High Jewelry Collection is Currently Being Curated
                 </h3>
                 <p className="text-xs sm:text-sm text-stone-600 max-w-xl mx-auto leading-relaxed">
                   Founder and master jeweler Jigna Khakhar is individually handcrafting, hallmarking, and setting each signature creation. We welcome clients for personal appointments and bespoke commissions at our Mumbai showroom or via live HD video appointment.
@@ -537,7 +548,7 @@ export default function App() {
                   className="px-6 py-3 bg-[#083338] hover:bg-[#0c444a] text-white border border-[#d4af37]/40 text-xs font-semibold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-md transition-all"
                 >
                   <Calendar className="w-4 h-4 text-[#d4af37]" />
-                  <span>Book Private Atelier Consultation</span>
+                  <span>Book Private Studio Consultation</span>
                 </button>
 
                 <button
@@ -549,9 +560,9 @@ export default function App() {
                 </button>
               </div>
 
-              {/* Atelier standards footer banner */}
+              {/* Workshop standards footer banner */}
               <div className="pt-6 border-t border-stone-100 flex flex-wrap items-center justify-center gap-3 text-xs text-stone-500">
-                <span className="text-[11px] font-mono text-[#0d7480] font-semibold uppercase tracking-wider">Atelier Standards:</span>
+                <span className="text-[11px] font-mono text-[#0d7480] font-semibold uppercase tracking-wider">Workshop Standards:</span>
                 <span className="text-stone-600">Sovereign BIS Hallmark</span>
                 <span>·</span>
                 <span className="text-stone-600">GIA & IGI Certified Diamonds</span>
@@ -600,13 +611,13 @@ export default function App() {
         <section className="bg-[#042326] text-white py-14 border-t border-b border-[#083338]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
             <span className="text-xs uppercase tracking-widest font-mono text-[#d4af37]">
-              Private Joaillerie Atelier · Andheri West, Mumbai
+              Private High Jewelry Studio · Andheri West, Mumbai
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-white font-normal text-balance">
               Design a Sacred Heirloom with Founder Jigna Khakhar
             </h2>
             <p className="text-xs sm:text-sm text-teal-100/80 max-w-xl mx-auto leading-relaxed">
-              Whether you are selecting a bespoke engagement diamond, custom mangalsutra length, or bridal necklace suite, our atelier offers complimentary 30-minute personal appointments online or at our Mumbai showroom.
+              Whether you are selecting a bespoke engagement diamond, custom mangalsutra length, or bridal necklace suite, our studio offers complimentary 30-minute personal appointments online or at our Mumbai showroom.
             </p>
             <div className="pt-2 flex flex-wrap justify-center gap-4">
               <button
@@ -694,6 +705,7 @@ export default function App() {
           preselectedProduct={consultationPreselectedProduct}
           onBookingConfirmed={(booking) => {
             setBookings(prev => [booking, ...prev]);
+            saveConsultationToFirestore(booking).catch(e => console.error('Firestore consultation sync error:', e));
           }}
         />
       )}
@@ -719,6 +731,7 @@ export default function App() {
           onClose={() => setQuoteEnquiryProduct(null)}
           onSubmitEnquiry={(enq) => {
             setEnquiries(prev => [enq, ...prev]);
+            saveQuotationToFirestore(enq).catch(e => console.error('Firestore quotation sync error:', e));
           }}
         />
       )}
@@ -732,6 +745,7 @@ export default function App() {
           onOrderCompleted={(ord) => {
             setOrders(prev => [ord, ...prev]);
             setCart([]);
+            saveOrderToFirestore(ord).catch(e => console.error('Firestore order sync error:', e));
           }}
         />
       )}

@@ -73,7 +73,7 @@ export const QuoteEnquiryModal: React.FC<QuoteEnquiryModalProps> = ({
             </div>
             <h4 className="font-serif text-2xl text-[#432032]">Quotation Ticket #{submittedId}</h4>
             <p className="text-xs text-stone-600 max-w-md mx-auto">
-              Your inquiry for <strong>{product.name}</strong> has been logged in our atelier queue. Founder <strong>Jigna Khakhar</strong> will prepare a confidential quotation within 1 business day.
+              Your inquiry for <strong>{product.name}</strong> has been logged in our workshop queue. Founder <strong>Jigna Khakhar</strong> will prepare a confidential quotation within 1 business day.
             </p>
             <div className="p-3 bg-stone-50 border border-stone-200 text-xs text-stone-700 inline-block text-left">
               <p>· Contact Telephones: <strong>+91 9821156861</strong> / <strong>+91 7506666861</strong> (Mon-Sat 10:30 - 19:30 IST)</p>
@@ -148,7 +148,7 @@ export const QuoteEnquiryModal: React.FC<QuoteEnquiryModalProps> = ({
                   <option value="₹2,00,000 - ₹5,00,000">₹2,00,000 - ₹5,00,000</option>
                   <option value="₹5,00,000 - ₹10,00,000">₹5,00,000 - ₹10,00,000</option>
                   <option value="₹10,00,000 - ₹25,00,000">₹10,00,000 - ₹25,00,000</option>
-                  <option value="₹25,00,000+ (High Atelier)">₹25,00,000+ (High Joaillerie)</option>
+                  <option value="₹25,00,000+ (Masterwork Collection)">₹25,00,000+ (High Jewelry)</option>
                   <option value="Flexible based on stones">Flexible based on stone grade</option>
                 </select>
               </div>

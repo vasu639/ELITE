@@ -1,0 +1,102 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Bespoke fine jewelry product item.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 2000 },
+        "sku": { "type": "string", "maxLength": 100 },
+        "category": { "type": "string", "maxLength": 50 },
+        "collection": { "type": "string", "maxLength": 200 },
+        "priceINR": { "type": "number" },
+        "isPriceOnRequest": { "type": "boolean" },
+        "leadTimeDays": { "type": "number" },
+        "image": { "type": "string", "maxLength": 2048 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "name", "category"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer jewelry purchase order record.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "customerName": { "type": "string", "maxLength": 120 },
+        "email": { "type": "string", "maxLength": 120 },
+        "phone": { "type": "string", "maxLength": 30 },
+        "total": { "type": "number" },
+        "paymentMethod": { "type": "string", "maxLength": 50 },
+        "paymentStatus": { "type": "string", "maxLength": 50 },
+        "status": { "type": "string", "maxLength": 50 },
+        "orderDate": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "customerName", "phone", "total"]
+    },
+    "Consultation": {
+      "title": "Consultation",
+      "description": "Showroom and video consultation booking.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "customerName": { "type": "string", "maxLength": 120 },
+        "customerEmail": { "type": "string", "maxLength": 120 },
+        "customerPhone": { "type": "string", "maxLength": 30 },
+        "mode": { "type": "string", "enum": ["showroom", "online"] },
+        "date": { "type": "string", "maxLength": 30 },
+        "timeSlot": { "type": "string", "maxLength": 30 },
+        "status": { "type": "string", "maxLength": 50 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "customerName", "customerPhone", "mode", "date", "timeSlot"]
+    },
+    "Quotation": {
+      "title": "Quotation",
+      "description": "Bespoke design quotation request.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "productId": { "type": "string", "maxLength": 128 },
+        "productName": { "type": "string", "maxLength": 200 },
+        "customerName": { "type": "string", "maxLength": 120 },
+        "customerEmail": { "type": "string", "maxLength": 120 },
+        "customerPhone": { "type": "string", "maxLength": 30 },
+        "status": { "type": "string", "maxLength": 50 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "productName", "customerName", "customerPhone"]
+    },
+    "ConnectionTest": {
+      "title": "ConnectionTest",
+      "description": "Health check document to verify client connectivity.",
+      "type": "object",
+      "properties": {
+        "status": { "type": "string", "maxLength": 50 }
+      }
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Studio jewelry catalog items."
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer purchase orders."
+    },
+    "/consultations/{consultationId}": {
+      "schema": "Consultation",
+      "description": "Private showroom and online video consultation bookings."
+    },
+    "/quotations/{quotationId}": {
+      "schema": "Quotation",
+      "description": "Customer bespoke quote inquiries."
+    },
+    "/test/{testId}": {
+      "schema": "ConnectionTest",
+      "description": "System connectivity diagnostic endpoint."
+    }
+  }
+}

@@ -52,9 +52,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
     if (product.salesMode === 'ready-to-buy') {
       setDeliveryStatus(`Serviceable by Insured Courier. Dispatch within 24h · Delivery in ${transitDays}.`);
     } else if (product.salesMode === 'made-to-order') {
-      setDeliveryStatus(`Serviceable. Atelier crafting time ${product.leadTimeDays} days + ${transitDays} insured transit.`);
+      setDeliveryStatus(`Serviceable. Workshop crafting time ${product.leadTimeDays} days + ${transitDays} insured transit.`);
     } else {
-      setDeliveryStatus(`Consultation & delivery available nationwide. Atelier appointment recommended.`);
+      setDeliveryStatus(`Consultation & delivery available nationwide. Private consultation recommended.`);
     }
   };
 
@@ -188,7 +188,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       Price on Request
                     </span>
                     <span className="text-xs text-stone-500 font-sans">
-                      (Bespoke Haute Joaillerie)
+                      (Bespoke High Jewelry)
                     </span>
                   </div>
                 )}
@@ -205,7 +205,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 {product.salesMode === 'made-to-order' && (
                   <span className="inline-flex items-center gap-1 text-xs font-semibold text-teal-800 bg-teal-50 px-2 py-0.5 border border-teal-200">
                     <Sparkles className="w-3 h-3 text-[#c59b27]" />
-                    Made to Order · Atelier Lead Time {product.leadTimeDays} Days
+                    Made to Order · Workshop Lead Time {product.leadTimeDays} Days
                   </span>
                 )}
                 {product.salesMode === 'price-on-request' && (
@@ -239,7 +239,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   <span className="font-medium text-[#282329]">{product.mangalsutraStrandCount}</span>
                 </div>
                 <div>
-                  <span className="text-stone-500 uppercase tracking-wider text-[10px] block">Pendant Motif</span>
+                  <span className="text-stone-500 uppercase tracking-wider text-[10px] block">Pendant Design</span>
                   <span className="font-medium text-[#282329]">{product.mangalsutraPendantStyle}</span>
                 </div>
                 <div>
@@ -339,7 +339,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               )}
               {product.accentStonesDetails && (
                 <div className="p-2.5 flex justify-between">
-                  <span className="text-stone-500">Accent / Pavé Diamonds</span>
+                  <span className="text-stone-500">Accent / Micro-Set Diamonds</span>
                   <span className="text-stone-800">{product.accentStonesDetails}</span>
                 </div>
               )}
@@ -398,7 +398,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             {isShortlisted && (
               <div className="p-3 bg-amber-50/60 border border-[#d4af37]/40 text-xs">
                 <span className="font-semibold text-amber-900 block mb-1">
-                  Private Consultation Note for Atelier Specialists
+                  Private Consultation Note for Studio Specialists
                 </span>
                 <input
                   type="text"

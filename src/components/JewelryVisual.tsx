@@ -306,7 +306,7 @@ export const JewelryVisual: React.FC<JewelryVisualProps> = ({
               ) : product.mangalsutraPendantStyle === 'Geometric' ? (
                 <g transform="translate(0, 64)">
                   <path d="M -34 0 L 0 24 L 34 0 L 26 -8 L 0 12 L -26 -8 Z" fill={metalFill} stroke={metalStroke} strokeWidth="1.5" />
-                  {/* Pave diamonds on chevron */}
+                  {/* Micro-set diamonds on chevron */}
                   {[-24, -16, -8, 0, 8, 16, 24].map((px, i) => (
                     <circle key={`chev-${i}`} cx={px} cy={Math.abs(px) * -0.3 + 8} r="2.8" fill="url(#diamondShimmer)" stroke="#fff" strokeWidth="0.5" />
                   ))}
